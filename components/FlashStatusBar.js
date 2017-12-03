@@ -12,4 +12,4 @@ export default class FlashStatusBar extends React.Component {
         </View>
         )
     }
-} 
+}

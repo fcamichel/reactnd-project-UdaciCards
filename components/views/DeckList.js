@@ -43,4 +43,4 @@ const styles = StyleSheet.create({
     
 })
 
-export default DeckList;
+export default DeckList

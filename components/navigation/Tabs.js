@@ -34,4 +34,4 @@ const Tabs = TabNavigator({
     animationEnabled: true
 });
 
-export default Tabs;
+export default Tabs

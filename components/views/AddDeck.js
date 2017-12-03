@@ -27,4 +27,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default AddDeck;
+export default AddDeck
