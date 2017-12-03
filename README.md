@@ -1,3 +1,16 @@
+# Submission project
+This is my submission project "Mobile Flashcards" for Udacity's React Nanodegree Program 
+
+# Quick Start Guide
+1. Goto root directory
+2. run ```yarn install``` to install all packages
+3. run ```yarn start```
+4. now you can then select if you want to use a simulator locally or on your Expo app via phone
+
+I tested only with iPhone 8 on iOS.
+
+- - -
+
 This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
 
 Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
