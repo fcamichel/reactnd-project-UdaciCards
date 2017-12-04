@@ -12,3 +12,20 @@ export function updateDeck(deck, key) {
     [key]: deck
   }))
 }
+
+export function deleteDeckFromStorage(key) {
+  let almostComplete;
+  return AsyncStorage.getItem(DECK_STORAGE_KEY)
+    .then((decks) => JSON.parse(decks))
+    .then((decks) => {
+      almostComplete = {...decks};
+      delete almostComplete[key];
+      return AsyncStorage.removeItem(DECK_STORAGE_KEY)
+    })
+    .then(() => {
+        AsyncStorage.mergeItem(
+          DECK_STORAGE_KEY,
+          JSON.stringify(almostComplete))
+      }
+    )
+}

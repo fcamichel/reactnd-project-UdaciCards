@@ -12,9 +12,10 @@ class AddDeck extends Component {
         deckName: 'Please type in here'
     }
 
-    toDeckList = () => {
-        this.props.navigation.dispatch(NavigationActions.back({
-            key: 'AddDeck'
+    toDeckList = (deckName) => {
+        this.props.navigation.dispatch(NavigationActions.navigate({
+            routeName: 'DeckDetail',
+            params: { deckName }
         }))
     }
 
@@ -32,7 +33,7 @@ class AddDeck extends Component {
             });
             this.props.addDeck(deckName);
             updateDeck([], deckName);
-            this.toDeckList();
+            this.toDeckList(deckName);
         }
     }
 

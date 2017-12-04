@@ -6,29 +6,36 @@ import { copperPenny, bone } from '../../utils/colors'
 import { fetchDecks } from "../../utils/api"
 import { receiveDecks } from "../../actions/"
 
-class DeckList extends Component {  
-      state = {
+class DeckList extends Component {
+    state = {
         ready: false
-      }
-    
-      componentDidMount() {
+    }
+
+    componentDidMount() {
         const { dispatch } = this.props
-    
+
         fetchDecks()
-          .then((decks) => {
-            dispatch(receiveDecks(decks));
-          })
-          .then(() => {
-            this.setState(() => ({ ready: true }))
-          })
-      }
-    
+            .then((decks) => {
+                dispatch(receiveDecks(decks));
+            })
+            .then(() => {
+                this.setState(() => ({ ready: true }))
+            })
+    }
+
     FlatListItemSeparator = () => {
         return (
             <View
                 style={styles.separator}
             />
         );
+    }
+
+    toDeck = (deckName) => {
+        this.props.navigation.dispatch(NavigationActions.navigate({
+            routeName: 'DeckDetail',
+            params: { deckName }
+        }))
     }
 
     render() {
@@ -44,12 +51,12 @@ class DeckList extends Component {
                     ? <ScrollView>
                         {decks && data.length > 0
                             ? <FlatList
-                                    data={data}
-                                    ItemSeparatorComponent={this.FlatListItemSeparator}
-                                    renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
-                                />
+                                data={data}
+                                ItemSeparatorComponent={this.FlatListItemSeparator}
+                                renderItem={({ item }) => <Text onPress={() => { this.toDeck(item.key) }} style={styles.item}>{item.key}</Text>}
+                            />
                             :
-                                <Text style={styles.noDecks}>No Decks created yet</Text>
+                            <Text style={styles.noDecks}>No Decks created yet</Text>
                         }
                     </ScrollView>
                     : <Text>Loading Decks ...</Text>
