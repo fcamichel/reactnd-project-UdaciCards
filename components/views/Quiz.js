@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { connect } from "react-redux"
 import { bone, darkPuce } from '../../utils/colors'
+import { clearLocationNotification, setLocalNotification } from "../../utils/helpers"
 
 function ResultScreen({ onRestart, onBack, correct, total }) {
     const incorrectCounter = total - correct;
@@ -58,8 +59,8 @@ class Quiz extends Component {
             }
         })
         if (this.state.questionIndex + 1 === this.state.deck.length) {
-            //clearLocationNotification()
-            //    .then(setLocalNotification)
+            clearLocationNotification()
+                .then(setLocalNotification)
         }
     }
 

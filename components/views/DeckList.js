@@ -5,6 +5,7 @@ import { connect } from "react-redux"
 import { copperPenny, bone } from '../../utils/colors'
 import { fetchDecks } from "../../utils/api"
 import { receiveDecks } from "../../actions/"
+import { setLocalNotification } from "../../utils/helpers"
 
 class DeckList extends Component {
     state = {
@@ -20,6 +21,9 @@ class DeckList extends Component {
             })
             .then(() => {
                 this.setState(() => ({ ready: true }))
+            })
+            .then(() => {
+                setLocalNotification();
             })
     }
 
