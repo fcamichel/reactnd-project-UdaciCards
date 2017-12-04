@@ -7,7 +7,7 @@ This is my submission project "Mobile Flashcards" for Udacity's React Nanodegree
 3. run ```yarn start```
 4. now you can then select if you want to use a simulator locally or on your Expo app via phone
 
-I tested only with iPhone 8 on iOS.
+I tested only with iPhone 8 on iOS. The app will show a notification at 6.30 PM, if you haven't started a quiz for the given day. You will be asked for a permission to that. If you reject, notifications will not work.
 
 - - -
 
