@@ -3,6 +3,7 @@ import { StackNavigator } from "react-navigation"
 import DeckDetail from "../views/DeckDetail"
 import DeckList from "../views/DeckList"
 import AddCard from "../views/AddCard"
+import Quiz from "../views/Quiz"
 import { copperPenny, nyanza, paleSilver } from '../../utils/colors'
 
 const DeckNavigation = StackNavigator({
@@ -37,11 +38,17 @@ const DeckNavigation = StackNavigator({
     AddCard: {
         screen: AddCard,
         navigationOptions: ({ navigation }) => ({
-          title: `Add Card for \'${navigation.state.params.deckName}\'`
+            title: `Add Card for \'${navigation.state.params.deckName}\'`
         })
-      },
+    },
+    Quiz: {
+        screen: Quiz,
+        navigationOptions: ({ navigation }) => ({
+            title: `Quiz \'${navigation.state.params.deckName}\'`
+        })
+    },
 }, {
-    initialRouteName: 'Decks'
-})
+        initialRouteName: 'Decks'
+    })
 
 export default DeckNavigation

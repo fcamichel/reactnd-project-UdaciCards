@@ -4,7 +4,7 @@ import { NavigationActions } from 'react-navigation'
 import { connect } from "react-redux"
 import { deleteDeck } from "../../actions/";
 import { deleteDeckFromStorage } from "../../utils/api";
-import { bone, copperPenny, darkPuce, paleSilver } from '../../utils/colors';
+import { bone, copperPenny, darkPuce, nyanza, paleSilver } from '../../utils/colors';
 
 class DeckDetail extends Component {
     subNavigate = (deckName, routeName) => {
@@ -34,7 +34,7 @@ class DeckDetail extends Component {
             <TouchableOpacity onPress={() => this.subNavigate(deckName, 'AddCard')}>
                 <Text style={styles.btn}>Add Card</Text>
             </TouchableOpacity>
-            {deck.length > 0 && <TouchableOpacity onPress={() => this.subNavigate(deckName, 'Quiz')}><Text>Start Quiz</Text></TouchableOpacity>}
+            {deck.length > 0 && <TouchableOpacity onPress={() => this.subNavigate(deckName, 'Quiz')}><Text style={styles.btnQuiz}>Start Quiz</Text></TouchableOpacity>}
         </View>)
     }
 }
@@ -53,6 +53,15 @@ const styles = StyleSheet.create({
         backgroundColor: copperPenny,
         color: paleSilver,
         margin: 20,
+        padding: 15,
+        height: 50,
+        minWidth: 200,
+        textAlign: 'center'
+    },
+    btnQuiz: {
+        backgroundColor: paleSilver,
+        color: nyanza,
+        margin: 40,
         padding: 15,
         height: 50,
         minWidth: 200,
