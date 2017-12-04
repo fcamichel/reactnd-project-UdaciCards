@@ -1,4 +1,4 @@
-import { ADD_DECK_DATA } from "../utils/types";
+import { ADD_DECK_DATA } from "../utils/types"
 
 export const addDeckData = (deckName, items) => {
   return {

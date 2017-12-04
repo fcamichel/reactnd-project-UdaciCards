@@ -1,4 +1,4 @@
-import { DELETE_DECK } from "../utils/types";
+import { DELETE_DECK } from "../utils/types"
 
 export const deleteDeck = (deckName) => {
   return {
