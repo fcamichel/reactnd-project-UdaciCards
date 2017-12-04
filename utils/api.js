@@ -29,3 +29,15 @@ export function deleteDeckFromStorage(key) {
       }
     )
 }
+
+export function addCardToStorage(key, question, answer) {
+  return AsyncStorage.getItem(DECK_STORAGE_KEY)
+    .then((decks) => JSON.parse(decks))
+    .then((decks) => {
+      return AsyncStorage.mergeItem(DECK_STORAGE_KEY,
+        JSON.stringify(
+          {[key]: decks[key].concat({question, answer})}
+        )
+      )
+    })
+}
