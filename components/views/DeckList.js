@@ -6,6 +6,7 @@ import { copperPenny, bone } from '../../utils/colors'
 import { fetchDecks } from "../../utils/api"
 import { receiveDecks } from "../../actions/"
 import { setLocalNotification } from "../../utils/helpers"
+import { FontAwesome } from '@expo/vector-icons'
 
 class DeckList extends Component {
     state = {
@@ -57,7 +58,7 @@ class DeckList extends Component {
                             ? <FlatList
                                 data={data}
                                 ItemSeparatorComponent={this.FlatListItemSeparator}
-                                renderItem={({ item }) => <Text onPress={() => { this.toDeck(item.key) }} style={styles.item}>{item.key}</Text>}
+                                renderItem={({ item }) => <Text onPress={() => { this.toDeck(item.key) }} style={styles.item}>{item.key} <FontAwesome name='caret-right' size={18} color={copperPenny} /> {decks[item.key].length}</Text>}
                             />
                             :
                             <Text style={styles.noDecks}>No Decks created yet</Text>
